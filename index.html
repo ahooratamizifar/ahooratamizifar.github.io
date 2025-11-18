@@ -7,39 +7,38 @@
 
   <meta name="viewport" content="width=device-width">
 
-  <!-- Automatically cache-bust CSS -->
+  <!-- Cache-bust CSS -->
   <script>
-    const version = new Date().getTime(); // unique number each time
-    const head = document.getElementsByTagName('head')[0];
-
-    const css1 = document.createElement('link');
-    css1.rel = 'stylesheet';
-    css1.href = 'stylesheets/styles.css?v=' + version;
-    head.appendChild(css1);
-
-    const css2 = document.createElement('link');
-    css2.rel = 'stylesheet';
-    css2.href = 'stylesheets/pygment_trac.css?v=' + version;
-    head.appendChild(css2);
+    const version = new Date().getTime();
+    document.write('<link rel="stylesheet" href="stylesheets/styles.css?v=' + version + '">');
+    document.write('<link rel="stylesheet" href="stylesheets/pygment_trac.css?v=' + version + '">');
   </script>
 </head>
+
 <body>
   <div class="wrapper">
+
     <header>
-      <h1>Ahoora Tamizifar</h1>
-      <p>I am a first-year Ph.D. student in mathematics at the University of Illinois Chicago.</p>
+      <h1 style="color: teal;">Ahoora Tamizifar</h1>
+
+      <!-- YOUR PHOTO HERE -->
+      <img src="myphoto.jpeg" alt="Ahoora photo">
+
     </header>
 
+    <section>
+      <p>I am a first-year Ph.D. student in mathematics at the University of Illinois Chicago.</p>
+    </section>
+
     <footer>
-      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
+      <p>Hosted on GitHub Pages — Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
     </footer>
+
   </div>
 
-  <!-- Automatically cache-bust JS -->
+  <!-- Cache-bust JS -->
   <script>
-    const js = document.createElement('script');
-    js.src = 'javascripts/scale.fix.js?v=' + version;
-    document.body.appendChild(js);
+    document.write('<script src="javascripts/scale.fix.js?v=' + version + '"><\/script>');
   </script>
 </body>
 </html>
