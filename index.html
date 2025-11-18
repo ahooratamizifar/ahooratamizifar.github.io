@@ -4,12 +4,24 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   <title>Ahoora Tamizifar</title>
-  <link rel="stylesheet" href="stylesheets/styles.css">
-  <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+
   <meta name="viewport" content="width=device-width">
-  <!--[if lt IE 9]>
-  <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
+
+  <!-- Automatically cache-bust CSS -->
+  <script>
+    const version = new Date().getTime(); // unique number each time
+    const head = document.getElementsByTagName('head')[0];
+
+    const css1 = document.createElement('link');
+    css1.rel = 'stylesheet';
+    css1.href = 'stylesheets/styles.css?v=' + version;
+    head.appendChild(css1);
+
+    const css2 = document.createElement('link');
+    css2.rel = 'stylesheet';
+    css2.href = 'stylesheets/pygment_trac.css?v=' + version;
+    head.appendChild(css2);
+  </script>
 </head>
 <body>
   <div class="wrapper">
@@ -18,15 +30,16 @@
       <p>I am a first-year Ph.D. student in mathematics at the University of Illinois Chicago.</p>
     </header>
 
-    <section>
-      <!-- You can add more content here later -->
-    </section>
-
     <footer>
       <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
     </footer>
   </div>
 
-  <script src="javascripts/scale.fix.js"></script>
+  <!-- Automatically cache-bust JS -->
+  <script>
+    const js = document.createElement('script');
+    js.src = 'javascripts/scale.fix.js?v=' + version;
+    document.body.appendChild(js);
+  </script>
 </body>
 </html>
