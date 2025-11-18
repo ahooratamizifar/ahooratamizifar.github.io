@@ -268,3 +268,14 @@ footer {
     color:#444;
   }
 }
+/* Make the name + photo stay on the left */
+header img {
+  margin-top: 10px;
+  border-radius: 8px;
+  width: 240px; /* adjust if needed */
+}
+
+/* Move the intro text to the right */
+section {
+  margin-left: 300px; /* pushes your intro to the right */
+}
