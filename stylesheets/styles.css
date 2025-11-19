@@ -45,7 +45,7 @@ header {
 
 /* Header image */
 header img {
-  margin-top: 0px;      /* photo closer to name */
+  margin-top: -5px;      /* photo closer to name */
   border-radius: 8px;
   width: 250px;         /* slightly larger than 240px */
 }
