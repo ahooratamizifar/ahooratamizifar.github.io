@@ -6,7 +6,7 @@
   <title>Ahoora Tamizifar</title>
   <meta name="viewport" content="width=device-width">
 
-  <!-- Remove favicon emoji -->
+  <!-- Remove favicon -->
   <link rel="icon" href="data:," />
 
   <!-- Cache-bust CSS -->
@@ -45,10 +45,10 @@
   </script>
 
   <script>
-    // Dark mode toggle
     const toggleBtn = document.getElementById('theme-toggle');
     const currentTheme = localStorage.getItem('theme');
 
+    // Apply saved theme on load
     if (currentTheme === 'dark') {
       document.documentElement.classList.add('dark');
       toggleBtn.textContent = "☀️";
