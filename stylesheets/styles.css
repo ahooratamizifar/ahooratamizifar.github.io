@@ -112,10 +112,11 @@ header {
 }
 
 header img {
-  margin-top:10px;
-  border-radius:8px;
-  width:240px; /* adjust as needed */
+  margin-top: 5px;  /* was 10px, smaller = closer to name */
+  border-radius: 8px;
+  width: 260px; /* adjust as needed */
 }
+
 
 section {
   width:500px;
