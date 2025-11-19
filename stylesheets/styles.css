@@ -31,13 +31,13 @@ header {
 }
 
 header h1.name {
-  margin-bottom:10px;
+  margin-bottom:5px; /* closer to photo */
 }
 
 header img.profile-pic {
   display:block;
-  margin-top:5px; /* closer to name */
-  width:250px; /* slightly larger than before */
+  margin-top:0; /* remove space between name and photo */
+  width:250px; /* slightly larger */
   border-radius:0; /* square */
 }
 
@@ -75,20 +75,14 @@ footer {
   height:40px;
   border-radius:50%;
   border:none;
-  background:#0288D1;
+  background:#888; /* neutral for both modes */
   color:#fff;
   cursor:pointer;
   font-size:18px;
   display:flex;
   align-items:center;
   justify-content:center;
-  transition: transform 0.3s ease, background 0.3s ease;
   z-index:1000;
-}
-
-#theme-toggle:hover {
-  transform:rotate(360deg);
-  background:#03A9F4;
 }
 
 /* Mobile layout */
@@ -105,7 +99,7 @@ footer {
   }
 
   header img.profile-pic {
-    margin:10px auto 0 auto; /* center photo */
+    margin:10px auto 0 auto; /* center photo on mobile */
   }
 
   section {
