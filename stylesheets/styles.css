@@ -97,30 +97,30 @@ html.dark #theme-toggle {
   div.wrapper { width:auto; margin:0; }
 
   header {
-    position:static;
-    width:100%;
-    float:none;
-    padding-bottom:20px;
-    border-bottom:1px solid #e5e5e5; /* horizontal bar */
-    text-align:center;
+    position: static;
+    width: 100%;
+    float: none;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e5e5e5; /* horizontal bar */
+    text-align: left; /* left-align name and photo */
   }
 
   header img.profile-pic {
-    margin:10px auto 0 auto; /* center photo on mobile */
+    margin: 10px 0 0 0; /* top margin only, aligned left */
   }
 
   section {
-    width:100%;
-    float:none;
-    margin-left:0;
-    padding-top:20px;
+    width: 100%;
+    float: none;
+    margin-left: 0;
+    padding-top: 20px;
   }
 
   footer {
-    width:100%;
-    position:static;
-    margin-top:20px;
-    text-align:center;
+    width: 100%;
+    position: static;
+    margin-top: 20px;
+    text-align: center;
   }
 }
 
