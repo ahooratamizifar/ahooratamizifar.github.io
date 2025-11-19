@@ -6,6 +6,7 @@
   <title>Ahoora Tamizifar</title>
   <meta name="viewport" content="width=device-width">
 
+  <!-- REMOVE emoji favicon -->
   <link rel="icon" href="data:," />
 
   <!-- Cache-bust CSS -->
@@ -14,28 +15,40 @@
     document.write('<link rel="stylesheet" href="stylesheets/styles.css?v=' + version + '">');
     document.write('<link rel="stylesheet" href="stylesheets/pygment_trac.css?v=' + version + '">');
   </script>
-
-  <link rel="icon" type="image/vnd.microsoft.icon" href="data:;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAA==" />
 </head>
 
 <body>
-  <!-- Dark/Light Mode Toggle Button -->
-<button id="theme-toggle">🌙</button>
+
+  <!-- ⭐ Dark Mode Toggle (circular animated) -->
+  <div class="theme-toggle" onclick="toggleTheme()">
+    <span id="theme-icon">🌙</span>
+  </div>
 
   <div class="wrapper">
 
     <header>
       <h1>Ahoora Tamizifar</h1>
-      <img src="images/myphoto.jpeg" alt="Ahoora photo">
+      <img class="profile-pic" src="images/myphoto.jpeg" alt="Ahoora photo">
     </header>
 
+    <div class="divider"></div>
+
     <section>
-      <p>I am a first-year Ph.D. student in mathematics at the University of Illinois Chicago. I completed my undergraduate studies in mathematics at the University of California, Irvine, where I co-founded the <a href="https://sites.uci.edu/umc/">Undergraduate Mathematics Committee</a>. Here is my <a href="CV_Ahoora_Tamizifar.pdf" target="_blank">CV</a>. </p>
-      <p style="margin-top:20px;">Email: atami4 at uic dot edu</p>
+      <p>
+        I am a first-year Ph.D. student in mathematics at the University of Illinois Chicago.
+        I completed my undergraduate studies in mathematics at the University of California, Irvine,
+        where I co-founded the
+        <a href="https://sites.uci.edu/umc/">Undergraduate Mathematics Committee</a>.
+        Here is my <a href="CV_Ahoora_Tamizifar.pdf" target="_blank">CV</a>.
+      </p>
+
+      <p style="margin-top:25px;">Email: atami4 at uic dot edu</p>
     </section>
 
     <footer>
-      <p>Hosted on GitHub Pages — Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
+      <p>Hosted on GitHub Pages — Theme by
+        <a href="https://github.com/orderedlist">orderedlist</a>
+      </p>
     </footer>
 
   </div>
@@ -44,24 +57,28 @@
   <script>
     document.write('<script src="javascripts/scale.fix.js?v=' + version + '"><\/script>');
   </script>
-</body>
+
+  <!-- ⭐ Dark Mode Script -->
   <script>
-  const toggleBtn = document.getElementById('theme-toggle');
-  const currentTheme = localStorage.getItem('theme');
+    function toggleTheme() {
+      document.body.classList.toggle("dark");
 
-  // Apply saved theme on load
-  if (currentTheme === 'dark') {
-    document.documentElement.classList.add('dark');
-    toggleBtn.textContent = "☀️";
-  }
+      const icon = document.getElementById("theme-icon");
+      icon.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
 
-  toggleBtn.addEventListener('click', () => {
-    document.documentElement.classList.toggle('dark');
-    const isDark = document.documentElement.classList.contains('dark');
+      // Save preference
+      localStorage.setItem(
+        "theme",
+        document.body.classList.contains("dark") ? "dark" : "light"
+      );
+    }
 
-    toggleBtn.textContent = isDark ? "☀️" : "🌙";
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
-  });
-</script>
+    // Restore saved theme
+    if (localStorage.getItem("theme") === "dark") {
+      document.body.classList.add("dark");
+      document.getElementById("theme-icon").textContent = "☀️";
+    }
+  </script>
 
+</body>
 </html>
