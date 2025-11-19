@@ -52,6 +52,8 @@
     if (currentTheme === 'dark') {
       document.documentElement.classList.add('dark');
       toggleBtn.textContent = "☀️";
+    } else {
+      toggleBtn.textContent = "🌙";
     }
 
     toggleBtn.addEventListener('click', () => {
