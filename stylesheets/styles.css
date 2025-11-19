@@ -112,7 +112,11 @@ footer {
   header { padding-right:320px; }
   section { border:1px solid #e5e5e5; border-width:1px 0; padding:20px 0; margin:0 0 20px; }
 }
-
+@media screen and (max-width: 480px) {
+  section {
+    margin-top: 20px; /* adds space below the photo */
+  }
+}
 @media print, screen and (max-width: 720px) {
   body { word-wrap:break-word; }
   header { padding:0; }
@@ -121,9 +125,21 @@ footer {
 }
 
 @media print, screen and (max-width: 480px) {
-  body { padding:15px; }
-  header ul { width:99%; }
-  header li, header ul li + li + li { width:33%; }
+  body {
+    padding:15px;
+  }
+
+  header ul {
+    width:99%;
+  }
+
+  header li, header ul li + li + li {
+    width:33%;
+  }
+
+  section {
+    margin-top: 20px; /* space between photo and intro on mobile */
+  }
 }
 
 @media print {
