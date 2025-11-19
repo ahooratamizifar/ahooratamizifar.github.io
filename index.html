@@ -19,6 +19,9 @@
 </head>
 
 <body>
+  <!-- Dark/Light Mode Toggle Button -->
+<button id="theme-toggle">🌙</button>
+
   <div class="wrapper">
 
     <header>
@@ -42,4 +45,23 @@
     document.write('<script src="javascripts/scale.fix.js?v=' + version + '"><\/script>');
   </script>
 </body>
+  <script>
+  const toggleBtn = document.getElementById('theme-toggle');
+  const currentTheme = localStorage.getItem('theme');
+
+  // Apply saved theme on load
+  if (currentTheme === 'dark') {
+    document.documentElement.classList.add('dark');
+    toggleBtn.textContent = "☀️";
+  }
+
+  toggleBtn.addEventListener('click', () => {
+    document.documentElement.classList.toggle('dark');
+    const isDark = document.documentElement.classList.contains('dark');
+
+    toggleBtn.textContent = isDark ? "☀️" : "🌙";
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  });
+</script>
+
 </html>
