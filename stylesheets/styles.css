@@ -57,32 +57,40 @@ footer {
   bottom:50px;
 }
 
-/* Dark mode */
-:root.dark {
-  background-color:#1E1E1E;
-  color:#ccc;
+/* Dark mode for full page */
+html.dark, html.dark body {
+  background-color: #1E1E1E;
+  color: #ccc;
 }
 
-:root.dark a { color:#4FC3F7; }
-:root.dark a:hover { color:#81D4FA; }
+html.dark a { color: #4FC3F7; }
+html.dark a:hover { color: #81D4FA; }
 
 /* Dark mode toggle button */
 #theme-toggle {
-  position:fixed;
-  top:20px;
-  right:20px;
-  width:40px;
-  height:40px;
-  border-radius:50%;
-  border:none;
-  background:#888; /* neutral for both modes */
-  color:#fff;
-  cursor:pointer;
-  font-size:18px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  z-index:1000;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background-color: #0288D1; /* light mode button */
+  color: #000; /* black emoji */
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  transition: background 0.3s, color 0.3s, filter 0.3s;
+  filter: invert(0%); /* black emoji default */
+}
+
+html.dark #theme-toggle {
+  background-color: #555; /* dark mode button */
+  color: #fff; /* white emoji */
+  filter: invert(100%);
 }
 
 /* Mobile layout */
