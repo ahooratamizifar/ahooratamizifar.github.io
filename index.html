@@ -1,90 +1,31 @@
 <!doctype html>
-<html lang="en">
+<html>
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
   <title>Ahoora Tamizifar</title>
+  <meta name="viewport" content="width=device-width">
 
-  <!-- Favicon (explicitly empty) -->
+  <!-- Remove favicon -->
   <link rel="icon" href="data:,">
 
-  <!--
-    Cache-busting via manual versioning.
-    Update this string when you deploy changes.
-  -->
-  <link rel="stylesheet" href="stylesheets/styles.css?v=2026-05-23">
-  <link rel="stylesheet" href="stylesheets/pygment_trac.css?v=2026-05-23">
+  <!-- Cache-bust CSS -->
+  <script>
+    const version = new Date().getTime();
 
-  <style>
-    /* Minimal safety fallback in case CSS fails to load */
-    body {
-      font-family: system-ui, -apple-system, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
+    document.write(
+      '<link rel="stylesheet" href="stylesheets/styles.css?v=' + version + '">'
+    );
 
-    #theme-toggle {
-      position: fixed;
-      top: 12px;
-      right: 12px;
-      border: none;
-      padding: 8px 10px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 16px;
-    }
-
-    .wrapper {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 40px 20px;
-    }
-
-    header {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-
-    .name {
-      margin-bottom: 10px;
-    }
-
-    .profile-pic {
-      width: 180px;
-      border-radius: 8px;
-    }
-
-    footer {
-      margin-top: 40px;
-      font-size: 14px;
-      opacity: 0.7;
-      text-align: center;
-    }
-
-    /* Dark mode support */
-    html.dark {
-      background: #121212;
-      color: #eaeaea;
-    }
-
-    html.dark a {
-      color: #8ab4f8;
-    }
-
-    html.dark #theme-toggle {
-      background: #333;
-      color: white;
-    }
-
-    #theme-toggle {
-      background: #eee;
-    }
-  </style>
+    document.write(
+      '<link rel="stylesheet" href="stylesheets/pygment_trac.css?v=' + version + '">'
+    );
+  </script>
 </head>
 
 <body>
 
+  <!-- Dark/Light Mode Toggle Button -->
   <button id="theme-toggle">🌙</button>
 
   <div class="wrapper">
@@ -116,25 +57,33 @@
 
   </div>
 
+  <!-- Cache-bust JS -->
   <script>
-    (function () {
-      const toggleBtn = document.getElementById('theme-toggle');
-      const root = document.documentElement;
+    document.write(
+      '<script src="javascripts/scale.fix.js?v=' + version + '"><\/script>'
+    );
+  </script>
 
-      // Load saved theme
-      const savedTheme = localStorage.getItem('theme');
-      if (savedTheme === 'dark') {
-        root.classList.add('dark');
-        toggleBtn.textContent = '☀️';
-      }
+  <script>
+    const toggleBtn = document.getElementById('theme-toggle');
+    const currentTheme = localStorage.getItem('theme');
 
-      // Toggle theme
-      toggleBtn.addEventListener('click', () => {
-        const isDark = root.classList.toggle('dark');
-        toggleBtn.textContent = isDark ? '☀️' : '🌙';
-        localStorage.setItem('theme', isDark ? 'dark' : 'light');
-      });
-    })();
+    // Apply saved theme on load
+    if (currentTheme === 'dark') {
+      document.documentElement.classList.add('dark');
+      toggleBtn.textContent = "☀️";
+    } else {
+      toggleBtn.textContent = "🌙";
+    }
+
+    toggleBtn.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+
+      const isDark = document.documentElement.classList.contains('dark');
+      toggleBtn.textContent = isDark ? "☀️" : "🌙";
+
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
   </script>
 
 </body>
